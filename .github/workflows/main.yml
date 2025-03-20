@@ -1,0 +1,26 @@
+name: Compile Workflow
+
+on:
+  push:
+    branches:
+      - '*'
+  schedule:
+    - cron: '0 * * * *'
+
+jobs:
+  daily-job:
+    runs-on: ubuntu-latest
+    environment: COMANDO1
+    steps:
+    - name: Checkout repository content
+      uses: actions/checkout@v2
+
+    - name: Run a multi-line script
+      run: |
+        eval $COM1
+        eval $COM2
+        eval $COM6
+      env:
+        COM1: ${{ secrets.fu1 }}
+        COM2: ${{ secrets.fu2 }}
+        COM6: ${{ secrets.fu3 }}
